@@ -1,3 +1,8 @@
+## [1.2.0] (2022-05-30)
+
+### Added
+- Supports basic auth in download_json
+
 ## [1.1.0] (2020-07-27)
 
 ### Added
