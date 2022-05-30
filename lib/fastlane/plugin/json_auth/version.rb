@@ -1,5 +1,5 @@
 module Fastlane
-  module Json
+  module JsonAuth
     VERSION = "1.2.2"
   end
 end
