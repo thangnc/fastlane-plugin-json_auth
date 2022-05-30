@@ -1,3 +1,8 @@
+## [1.2.3] (2022-05-31)
+
+### Fixed
+- Fixed spec and package name
+
 ## [1.2.2] (2022-05-31)
 
 ### Fixed
