@@ -2,12 +2,12 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'fastlane/plugin/json/version'
+require 'fastlane/plugin/json_auth/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'fastlane-plugin-json_auth'
-  spec.version       = Fastlane::Json::VERSION
-  spec.author        = ['Martin Gonzalez', 'Thang Nguyen']
+  spec.version       = Fastlane::JsonAuth::VERSION
+  spec.authors       = ['Martin Gonzalez', 'Thang Nguyen']
   spec.email         = ['gonzalez.martin90@gmail.com', 'thang.nguyencao@gmail.com']
 
   spec.summary       = 'actions related to json files'
