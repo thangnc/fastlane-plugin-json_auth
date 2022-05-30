@@ -1,3 +1,8 @@
+## [1.2.2] (2022-05-31)
+
+### Fixed
+- Fixed checking username/password not nil
+
 ## [1.2.1] (2022-05-30)
 
 ### Fixed
