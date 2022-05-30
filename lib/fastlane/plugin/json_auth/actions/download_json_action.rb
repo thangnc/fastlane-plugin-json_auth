@@ -59,6 +59,16 @@ module Fastlane
                                        verify_block: proc do |value|
                                          UI.user_error!("You must set json_url pointing to a json file") unless value && !value.empty?
                                        end),
+          FastlaneCore::ConfigItem.new(key: :username,
+                                       description: "Basic auth username to download",
+                                       optional: true,
+                                       is_string: true,
+                                       default_value: nil),
+          FastlaneCore::ConfigItem.new(key: :password,
+                                       description: "Basic auth password to download",
+                                       optional: true,
+                                       is_string: true,
+                                       default_value: nil),
           FastlaneCore::ConfigItem.new(key: :verbose,
                                        description: "verbose",
                                        optional: true,
@@ -80,7 +90,7 @@ module Fastlane
       end
 
       def self.authors
-        ["Martin Gonzalez"]
+        ["Martin Gonzalez", "Thang Nguyen"]
       end
 
       def self.is_supported?(_platform)
