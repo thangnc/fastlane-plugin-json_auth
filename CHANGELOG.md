@@ -1,3 +1,8 @@
+## [1.2.4] (2022-05-31)
+
+### Fixed
+- Updated params validation
+
 ## [1.2.3] (2022-05-31)
 
 ### Fixed
