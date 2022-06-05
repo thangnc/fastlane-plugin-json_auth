@@ -79,7 +79,7 @@ module Fastlane
       end
 
       def self.print_params(options)
-        table_title = "Params for download_json #{Fastlane::Json::VERSION}"
+        table_title = "Params for download_json #{Fastlane::JsonAuth::VERSION}"
         FastlaneCore::PrintTable.print_values(config: options,
                                               hide_keys: [],
                                               title: table_title)
