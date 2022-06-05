@@ -1,6 +1,6 @@
 # Fastlane Json plugin <!-- omit in toc -->
 
-[![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-json) ![Gem Version](https://badge.fury.io/rb/fastlane-plugin-json.svg) ![](https://ruby-gem-downloads-badge.herokuapp.com/fastlane-plugin-json) [![YourActionName Actions Status](https://github.com/MartinGonzalez/fastlane-plugin-json/workflows/Test-Build-Publish/badge.svg)](https://github.com/MartinGonzalez/fastlane-plugin-json/actions)
+[![fastlane Plugin Badge](https://rawcdn.githack.com/fastlane/fastlane/master/fastlane/assets/plugin-badge.svg)](https://rubygems.org/gems/fastlane-plugin-json_auth) ![Gem Version](https://badge.fury.io/rb/fastlane-plugin-json_auth.svg) ![](https://ruby-gem-downloads-badge.herokuapp.com/fastlane-plugin-json_auth) [![CircleCI](https://circleci.com/gh/thangnc/fastlane-plugin-json_auth.svg?style=shield)](https://circleci.com/gh/thangnc/fastlane-plugin-json_auth)
 
 - [Getting Started](#getting-started)
 - [Actions](#actions)
