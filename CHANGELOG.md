@@ -1,3 +1,11 @@
+## [1.2.5] (2022-06-05)
+
+### Fixed
+- Updated params table when running command `fastlane action`
+
+### Added
+- Enabled CircleCI
+
 ## [1.2.4] (2022-05-31)
 
 ### Fixed
