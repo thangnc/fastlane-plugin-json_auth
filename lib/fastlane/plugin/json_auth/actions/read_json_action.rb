@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'fastlane/action'
+require 'fastlane_core/configuration/config_item'
+require 'fastlane_core/print_table'
 require "json"
+require_relative '../helper/json_helper'
 
 module Fastlane
   module Actions
@@ -11,7 +15,7 @@ module Fastlane
         @is_verbose = params[:verbose]
 
         if json_path.nil? && json_string.nil?
-          put_error!("You need to provide a json_path (file to path) or json_string (json as string) ❌")
+          put_error!("You need to provide a json_path (file to path) or json_string (json as string).")
           return nil
         end
 
@@ -21,7 +25,7 @@ module Fastlane
 
         unless json_path.nil?
           unless File.file?(json_path)
-            put_error!("File at path #{json_path} does not exist. Verify that the path is correct ❌")
+            put_error!("File at path #{json_path} does not exist. Verify that the path is correct.")
             return nil
           end
 
@@ -30,8 +34,8 @@ module Fastlane
 
         begin
           JSON.parse(json_content, symbolize_names: true)
-        rescue
-          put_error!("File at path #{json_path} has invalid content. ❌")
+        rescue StandardError
+          put_error!("File at path #{json_path} has invalid content.")
         end
       end
 
