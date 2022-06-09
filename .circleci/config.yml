@@ -23,7 +23,7 @@ jobs:
 
       - run:
           name: install bundler
-          command: bundle update --bundler
+          command: gem install bundler
 
       - run:
           name: install dependencies
