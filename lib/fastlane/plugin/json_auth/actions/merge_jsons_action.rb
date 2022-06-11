@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'fastlane/action'
+require 'fastlane_core/configuration/config_item'
+require 'fastlane_core/print_table'
 require "json"
+require_relative '../helper/json_helper'
 
 module Fastlane
   module Actions
@@ -11,15 +15,15 @@ module Fastlane
         @is_verbose = params[:verbose]
 
         print_params(params) if @is_verbose
-        put_error!("jsons_path cannot be empty ❌") if jsons_paths.empty?
+        put_error!("jsons_path cannot be empty.") if jsons_paths.empty?
 
         hashes = jsons_paths.map do |json_path|
-          put_error!("json_path: #{json_path} is not valid ❌") unless File.exist?(json_path)
+          put_error!("json_path: #{json_path} is not valid.") unless File.exist?(json_path)
           json_content = File.read(File.expand_path(json_path))
           begin
             JSON.parse(json_content, symbolize_names: true)
-          rescue
-            put_error!("File at path #{json_path} has invalid content. ❌")
+          rescue StandardError
+            put_error!("File at path #{json_path} has invalid content.")
           end
         end
 
@@ -36,9 +40,9 @@ module Fastlane
         Dir.mkdir(file_dir) unless File.directory?(file_dir)
 
         begin
-          File.open(output_path, "w") { |f| f.write(JSON.pretty_generate(hash)) }
-        rescue
-          put_error!("Failed to write json at #{output_path}. ❌")
+          File.write(output_path, JSON.pretty_generate(hash))
+        rescue StandardError
+          put_error!("Failed to write json at #{output_path}.")
         end
       end
 

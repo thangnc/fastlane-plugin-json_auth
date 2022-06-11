@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
-require "json"
+require 'fastlane/action'
+require 'fastlane_core/configuration/config_item'
+require 'fastlane_core/print_table'
+require 'json'
+require_relative '../helper/json_helper'
 
 module Fastlane
   module Actions
@@ -19,11 +23,9 @@ module Fastlane
         Dir.mkdir(file_dir) unless File.directory?(file_dir)
 
         begin
-          File.open(file_path, "w") do |f|
-            f.write(JSON.pretty_generate(hash))
-          end
-        rescue
-          put_error!("File at path #{json_path} has invalid content. ❌")
+          File.write(file_path, JSON.pretty_generate(hash))
+        rescue StandardError
+          put_error!("File at path #{file_path} has invalid content.")
         end
       end
 

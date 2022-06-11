@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
+require 'fastlane/action'
+require 'fastlane_core/configuration/config_item'
+require 'fastlane_core/print_table'
 require "net/http"
 require "json"
+require_relative '../helper/json_helper'
 
 module Fastlane
   module Actions
@@ -21,7 +25,6 @@ module Fastlane
           Net::HTTP.start(uri.host, uri.port,
                           use_ssl: uri.scheme == 'https',
                           verify_mode: OpenSSL::SSL::VERIFY_NONE) do |http|
-
             request = Net::HTTP::Get.new(uri.request_uri)
             if !username.nil? && !username.empty? && !password.nil? && !password.empty?
               request.basic_auth(params[:username], params[:password])
@@ -31,9 +34,9 @@ module Fastlane
             JSON.parse(response.body, symbolize_names: true)
           end
         rescue JSON::ParserError
-          puts_error!("Downloaded json has invalid content ❌")
-        rescue => exception
-          puts_error!("Failed to download json. Message: #{exception.message} ❌")
+          puts_error!("Downloaded json has invalid content.")
+        rescue StandardError => e
+          puts_error!("Failed to download json. Message: #{e.message}.")
         end
       end
 
